@@ -88,7 +88,10 @@ app.get("/", async(req,res)=>{
     res.render('home', {Users:Users})
 })
 
-conn.sync().then(()=>{
+conn
+.sync()
+//.sync({force:true})
+.then(()=>{
     app.listen(3000)
 }).catch((err)=>{
     console.log(err)
