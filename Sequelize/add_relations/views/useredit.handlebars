@@ -19,9 +19,9 @@
 </div>
 <input type="submit" value="Editar">
 </form>
-<div class="adress-container">
-    <h2>Endereços</h2>
+<div class="address-container">
     <form action="/address/create" method="post">
+        <h2>Endereços</h2>
         <input type="hidden" name="UserId" value="{{user.id}}">
         <div class="form-control">
             <label for="street">Rua:</label>
@@ -36,6 +36,12 @@
             <input type="text" name="city" placeholder="Digite a cidade">
         </div>
         <input type="submit" value="Incluir endereço">
+    <div class="address-list">
+        <h2>Lista de endereços</h2>
+        {{#each user.Adresses}}
+            <p>#{{this.id}} - {{this.street}} - {{this.number}} - {{this.city}} </p>
+        {{/each}}
+    </div>
     </form>
 
 </div>
