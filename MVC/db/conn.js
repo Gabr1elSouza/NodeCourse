@@ -13,4 +13,4 @@ try{
 
 }
 
-exports.default = sequelize
+module.exports = sequelize
