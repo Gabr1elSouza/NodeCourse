@@ -9,7 +9,7 @@ app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
 
 
-app.use(
+app.use( 
     express.urlencoded({
         extended: true
     })
