@@ -56,8 +56,6 @@
     flex-direction: row;
 }
 
-
-
 .form-control input,
 .form-control textarea{
     padding: 7px;
@@ -97,6 +95,11 @@ form input[type='submit']{
 
 .task-list .title:hover{
     color:#333;
+}
+
+.title.done{
+    text-decoration: line-through;
+    color: #ccc;
 }
 
 .actions{
