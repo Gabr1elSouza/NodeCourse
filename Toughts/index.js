@@ -6,9 +6,21 @@ const Flash = require('express-flash')
 
 const app = express()
 
-const conn = require('./db/conn')
 const flash = require('express-flash')
 
+//Conection with Database
+const conn = require('./db/conn')
+//Models
+const Tought = require('./models/Tought')
+const User = require('./models/User')
+
+//Import routes
+const ToughtsRoutes = require('./routes/toughtsRoutes')
+
+//Import Controllers
+const ToughtsController = require('./controllers/ToughtController')
+
+//set engine
 app.engine('handlebars', exphbs())
 app.set('view engine', 'handlebars')
 
@@ -29,7 +41,6 @@ app.use(
         store: new FileStore({
             logFn: function(){},
             path: require('path').join(require('os').tmpdir(), 'sessions'),
-
         }),
         cookie:{
             secure: false,
@@ -46,7 +57,7 @@ app.use(flash())
 //public path
 app.use(express.static('public'))
 
-//set session
+//set session to res
 app.use((req,res, next)=>{
     if(req.session.userid){
         res.locals.session = req.session
@@ -56,6 +67,11 @@ app.use((req,res, next)=>{
 
 })
 
+//Routes
+app.use('/toughts',ToughtsRoutes)
+app.get('/',ToughtsController.showThoughts)
+
+//conection
 conn.sync()
 .then(()=>{
     app.listen(3000)
