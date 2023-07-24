@@ -16,6 +16,7 @@ const User = require('./models/User')
 
 //Import routes
 const ToughtsRoutes = require('./routes/toughtsRoutes')
+const authRoutes = require('./routes/authRoutes')
 
 //Import Controllers
 const ToughtsController = require('./controllers/ToughtController')
@@ -69,7 +70,11 @@ app.use((req,res, next)=>{
 
 //Routes
 app.use('/toughts',ToughtsRoutes)
+app.use('/',authRoutes)
+
 app.get('/',ToughtsController.showThoughts)
+
+
 
 //conection
 conn.sync()
