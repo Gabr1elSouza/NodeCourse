@@ -77,7 +77,9 @@ app.get('/',ToughtsController.showThoughts)
 
 
 //conection
-conn.sync()
+conn
+// .sync({force:true})
+.sync()
 .then(()=>{
     app.listen(3000)
 }).catch((err)=>{

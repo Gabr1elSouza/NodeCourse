@@ -1,9 +1,0 @@
-module.exports = class AuthController {
-    static login(req,res){
-        res.render('Auth/login')
-    }
-
-    static register(req,res){
-        res.render('Auth/register')
-    }
-}
