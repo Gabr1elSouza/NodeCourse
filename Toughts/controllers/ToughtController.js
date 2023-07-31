@@ -24,9 +24,12 @@ module.exports = class ToughtsController{
 
         const toughts = user.Toughts.map((result) => result.dataValues)
 
-        console.log(toughts)
+        let emptyToughts = false
 
-        res.render('toughts/dashboard', {toughts})
+            if(toughts.length === 0){
+                emptyToughts = true
+            }
+        res.render('toughts/dashboard', {toughts, emptyToughts})
     }
 
     static createTought(req,res){
