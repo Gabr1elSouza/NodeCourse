@@ -5,7 +5,7 @@ module.exports = class ProductController{
         res.render('products/all')
     }
 
-    static createProduct(eq,res){
+    static createProduct(req,res){
         res.render('products/create')
     }
 
