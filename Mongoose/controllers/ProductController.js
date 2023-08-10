@@ -38,24 +38,24 @@ module.exports = class ProductController{
     //     res.redirect('/products')
     // }
 
-    // static async editProduct(req,res){
-    //     const id = req.params.id
+    static async editProduct(req,res){
+         const id = req.params.id
          
-    //     const product = await Product.getProductById(id)
+        const product = await Product.findById(id).lean()
 
-    //     res.render('products/edit',{product})
-    // }
+         res.render('products/edit',{product})
+     }
 
-    // static async editProductPost(req,res){
-    //     const id = req.body.id
-    //     const name = req.body.name
-    //     const image = req.body.image
-    //     const price = req.body.price
-    //     const description = req.body.description
+    static async editProductPost(req,res){
+         const id = req.body.id
+         const name = req.body.name
+         const image = req.body.image
+         const price = req.body.price
+         const description = req.body.description
 
-    //     const product = {name: name, image: image, price: price, description: description}
-    //     console.log(product)
-    //     await Product.updateProduct(id, product);
-    //     res.redirect('/products')
-    // }
+         const product = {name: name, image: image, price: price, description: description}
+        //  console.log(product)
+         await Product.updateOne({_id:id}, product);
+         res.redirect('/products')
+     }
 }
