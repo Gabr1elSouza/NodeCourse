@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 //helpers
 const createUserToken = require('../helpers/create-user-token')
 const getToken = require('../helpers/GetToken')
+
 module.exports = class UserController{
     static async register(req,res){
         const {name,email,phone,password,confirmpassword}= req.body
@@ -104,5 +105,23 @@ module.exports = class UserController{
             currentUser = null
         }
         res.status(200).send(currentUser)
+    }
+
+    static async getUserById(req,res){
+        const id = req.params.id
+        const user = await User.findById(id).select("-password")
+
+        if(!user){
+            res.status(422).json({message: 'Usuário não encotrado!'})
+            return
+        }
+
+        res.status(200).json({user})
+
+    }
+
+    static async editUser(req,res){
+        res.status(200).json({message: 'Deu certo update!'})
+            return
     }
 }
