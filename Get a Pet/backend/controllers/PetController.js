@@ -74,4 +74,15 @@ module.exports = class PetController{
         const pets = await Pet.find().sort('-createdAt')
         res.status(200).json({pets: pets})
     }
+
+    static async getAllUserPets(req,res){
+        //get user from token
+        const token = getToken(req)
+        const user = await getUserByToken(token)
+
+        const pets = await Pet.find({'user._id': user._id}).sort('-createdAt')
+
+        res.status(200).json({pets})
+
+    }
 }
