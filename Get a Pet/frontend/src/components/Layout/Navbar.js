@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom"
 
+import Logo from '../../assets/img/logo.png'
+
 function Navbar(){
     return(
        <nav>
+        <div>
+            <img src={Logo} alt="Get a Pet"/>
+                <h2>Get a Pet</h2>
+        </div>
         <ul>
             <li>
                 <Link to="/">Adotar</Link>
