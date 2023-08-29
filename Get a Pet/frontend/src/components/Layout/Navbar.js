@@ -20,7 +20,10 @@ function Navbar(){
             <li>
                 <Link to="/">Adotar</Link>
             </li>
-            {authenticated ? (<><li onClick={logout}>Sair</li></>) :
+            {authenticated ? (<>
+            <li onClick={logout}>Sair</li>
+            <li><Link to='/user/profile'>Perfil</Link></li>
+            </>) :
             (
             <>
                 <li>
