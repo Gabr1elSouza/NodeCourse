@@ -18,7 +18,7 @@ function AddPet(){
             <h1>Add</h1>
             <p>Depois ele ficará disponível para adoaçãos</p>
             </div>
-            <PetForm/>
+            <PetForm btnText="Cadastrar Pet"/>
         </section>
     )
 }
