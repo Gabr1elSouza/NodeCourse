@@ -8,6 +8,9 @@ import { Navigate } from 'react-router-dom'
 /*Hooks */
 import useFlashMessage from '../../../hooks/userFlashMessage'
 
+/*Component*/
+import PetForm from '../../form/PetForm'
+
 function AddPet(){
     return(
         <section className={styles.addpet_header}>
@@ -15,7 +18,7 @@ function AddPet(){
             <h1>Add</h1>
             <p>Depois ele ficará disponível para adoaçãos</p>
             </div>
-            <p>Formulário</p>
+            <PetForm/>
         </section>
     )
 }
