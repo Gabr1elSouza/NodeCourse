@@ -6,23 +6,30 @@ import Input from './input'
 import Select from './Select'
 
 function PetForm({handleSubmit, petData, btnText}){
-    const [pet, setpet] = useState(petData || {})
+    const [pet, setPet] = useState(petData || {})
     const [preview, setPreview] = useState([])
     const colors = ["Branco", "Preto", "Cinza", "Caramelo", "Mesclados"]
 
     function onFileChange(e){
-
+        setPet({...pet, images: [...e.target.files]})
     }
 
     function handleChange(e){
+        setPet({...pet, [e.target.name]: e.target.value})
 
     }
 
     function handleColor(e){
+        setPet({...pet, color: e.target.options[e.target.selectedIndex].text})
 
     }
 
-    return <form className={formStyle.form_container}>
+    function submit(e){
+        e.preventDefault()
+        
+    }
+
+    return <form onSubmit={submit} className={formStyle.form_container}>
         <Input
         text="Imagens do pet"
         type="file"
