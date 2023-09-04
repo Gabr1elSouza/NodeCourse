@@ -23,8 +23,8 @@ function PetForm({handleSubmit, petData, btnText}){
 
     function handleColor(e){
         setPet({...pet, color: e.target.options[e.target.selectedIndex].text})
-        console.log(pet)
-        //handleSubmit(pet)
+        //console.log(pet)
+        handleSubmit(pet)
     }
 
     function submit(e){
