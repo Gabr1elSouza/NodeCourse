@@ -77,7 +77,7 @@ function PetForm({handleSubmit, petData, btnText}){
         text="Selecione a cor"
         options = {colors}
         handleOnChange={handleColor}
-        value={pet.color || ''}
+        value={ pet.color || '' }
         />
         <input type="submit" value={btnText}/>
     </form>
