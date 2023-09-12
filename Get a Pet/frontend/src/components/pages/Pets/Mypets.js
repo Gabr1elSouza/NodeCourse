@@ -47,7 +47,7 @@ function Mypets(){
     return(
         <section >
             <div className={styles.petlist_header}>
-            <h1>Mypets</h1>
+            <h1>Meus Pets</h1>
             <Link to="/pet/add">Cadastrar Pet</Link>
             </div>
             <div className={styles.petlist_container}>
