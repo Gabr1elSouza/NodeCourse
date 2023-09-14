@@ -8,7 +8,7 @@ import useFlashMessage from './userFlashMessage'
 export default function useAuth(){
     const [authenticated, setAuthenticated] =useState(false)
     const {setFlashMessage} = useFlashMessage()
-    const history = useNavigate()
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const token = localStorage.getItem('token')
@@ -38,7 +38,7 @@ export default function useAuth(){
     async function authUser(data){
         setAuthenticated(true)
         localStorage.setItem('token',JSON.stringify(data.token))
-        history('/')
+        navigate('/')
     }
 
     function logout(){
@@ -48,7 +48,7 @@ export default function useAuth(){
         setAuthenticated(false)
         localStorage.removeItem('token')
         api.defaults.headers.Authorization = undefined
-        history('/')
+        navigate('/')
 
         setFlashMessage(msgText, msgType)
     }

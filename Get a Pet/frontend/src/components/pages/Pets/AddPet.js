@@ -14,7 +14,7 @@ import PetForm from '../../form/PetForm'
 function AddPet(){
     const [token] = useState(localStorage.getItem('token'||''))
     const { setFlashMessage } = useFlashMessage()
-    const history = useNavigate()
+    const navigate = useNavigate()
 
     async function registerPet(pet){
         let msgType = 'success'
@@ -44,7 +44,7 @@ function AddPet(){
 
         setFlashMessage(data.message, msgType)
         if(msgType !== 'error'){
-            history('/pets/mypets')
+            navigate('/pets/mypets')
         }
     }
     return(
