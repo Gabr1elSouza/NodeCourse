@@ -14,7 +14,7 @@ function Navbar(){
        <nav className={styles.navbar}>
         <div className={styles.navbar_logo}>
             <img src={Logo} alt="Get a Pet"/>
-            <h2>Get a Pet</h2>
+            <h2><Link to={'/'}>Get a Pet</Link></h2>
         </div>
         <ul>
             <li>
